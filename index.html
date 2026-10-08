@@ -1,169 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Calculator</title>
+
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-
-    <title>Omar Husain</title>
 </head>
+
 <body>
-    <header>
-        <a href="#" class="logo">Omar Husain</a>
 
-        <nav class="navigation">
-            <a href="#identity">Identity</a>
-            <a href="#skills">Skills</a>
-            <a href="#hobbies">Hobbies</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <div class="calculator">
 
-    <section class="main">
-        <div class="main-content">
-            <h2>
-                Welcome to My Portfolio<br>
-                <span>Content Creator</span>
-            </h2>
+        <div class="display">
+            <div class="expression" id="expression">0</div>
+            <div class="result" id="result">0</div>
+        </div>
 
-            <h3>Hi, I build this Project</h3>
+        <div class="buttons">
 
-            <a href="#projects" class="main-btn">View My Work</a>
+            <button class="clear" onclick="clearCalculator()">AC</button>
+            <button onclick="deleteLast()">DEL</button>
+            <button onclick="addValue('(')">(</button>
+            <button onclick="addValue(')')">)</button>
 
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+            <button onclick="addValue('7')">7</button>
+            <button onclick="addValue('8')">8</button>
+            <button onclick="addValue('9')">9</button>
+            <button class="operator" onclick="addValue('/')">÷</button>
+
+            <button onclick="addValue('4')">4</button>
+            <button onclick="addValue('5')">5</button>
+            <button onclick="addValue('6')">6</button>
+            <button class="operator" onclick="addValue('*')">×</button>
+
+            <button onclick="addValue('1')">1</button>
+            <button onclick="addValue('2')">2</button>
+            <button onclick="addValue('3')">3</button>
+            <button class="operator" onclick="addValue('-')">−</button>
+
+            <button onclick="addValue('0')">0</button>
+            <button onclick="addValue('.')">.</button>
+            <button onclick="addValue('%')">%</button>
+            <button class="operator" onclick="addValue('+')">+</button>
+
+            <button onclick="squareRoot()">√</button>
+            <button onclick="squareNumber()">x²</button>
+
+            <button class="equals wide" onclick="calculate()">=</button>
+
+        </div>
+
+        <div class="history">
+            <h3>History</h3>
+
+            <div class="history-list" id="history">
+                No calculations yet.
             </div>
         </div>
-    </section>
 
-    <section class="cards" id="identity">
-        <h2 class="title">About Me</h2>
+    </div>
 
-        <div class="content">
-            <div class="card">
-                <div class="icon">
-                    <i class="fas fa-edit"></i>
-                </div>
+    <script src="script.js"></script>
 
-                <div class="info">
-                    <h3>Identity</h3>
-                    <p>
-                        My name is Omar Husain, and I am a content creator
-                        with a passion for storytelling and digital media.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card" id="skills">
-                <div class="icon">
-                    <i class="fas fa-laptop"></i>
-                </div>
-
-                <div class="info">
-                    <h3>skills</h3>
-                    <p>
-                        My skills include creating websites, graphic design,
-                        social media management, and content strategy.
-                        I am proficient in various software tools and platforms
-                        that allow me to create engaging and impactful content.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card" id="hobbies">
-                <div class="icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-
-                <div class="info">
-                    <h3>hobbies</h3>
-                    <p>
-                        My hobbies include reading, hiking, and playing guitar.
-                        These activities help me relax and find inspiration
-                        for my creative projects.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="projects" id="projects">
-        <h2 class="title">My Projects</h2>
-
-        <div class="content">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../images/project1.jpg" alt="Project 1">
-                </div>
-
-                <div class="project-video">
-                    <iframe
-                        src="https://www.youtube.com/embed/e2RB1rNeAAQ"
-                        title="Project video"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <div class="project-info">
-                    <p class="project-category">Software Development</p>
-
-                    <strong class="project-title">
-                        <span>Dev Books</span>
-                        <a href="#" class="more-details">More Details</a>
-                    </strong>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="../images/calculator-preview.png" alt="Calculator Project">
-                </div>
-
-                <div class="project-info">
-                    <p class="project-category">Web Development</p>
-
-                    <strong class="project-title">
-                        <span>Calculator</span>
-                        <a href="../calculator/index.html" class="more-details">View Calculator</a>
-                    </strong>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cards contact" id="contact">
-        <h2 class="title">Let's Work Together</h2>
-
-        <div class="content">
-            <div class="card">
-                <div class="icon">
-                    <i class="fas fa-phone"></i>
-                </div>
-
-                <div class="info">
-                    <h3>Phone Number</h3>
-                    <p>+1 (123) 456-7890</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-
-                <div class="info">
-                    <h3>email</h3>
-                    <p>myemail@example.com</p>
-                </div>
-            </div>
-        </div>
-    </section>
 </body>
 </html>
